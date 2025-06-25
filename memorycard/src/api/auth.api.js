@@ -11,3 +11,18 @@ export const authService = {
     return response.data;
   }
 };
+
+export const loadServices = {
+  getUserData: async (token) => {
+    
+    const response = await axios.get(`${API_URL}/api/users/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    return response.data;
+  }
+};
+
+
+

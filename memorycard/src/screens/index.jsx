@@ -18,12 +18,15 @@ const LoginScreen = () => {
     const navigation = useNavigation();
     const { loading, error } = useSelector(state => state.auth);
 
-    const handleLogin = async () => {
-        if (username && password) {
+const handleLogin = async () => {
+    if (username && password) {
+        try {
             await dispatch(login(username, password));
-            navigation.navigate('Play');
+        } catch (error) {
+            console.error('Login failed:', error);
         }
-    };
+    }
+};
 
     return (
         <View style={styles.container}>

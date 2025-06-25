@@ -25,7 +25,8 @@ module.exports =  function(api) {
           '@services': './src/services',
           '@hooks': './src/hooks',
           '@redux': './src/redux',
-          '@navigation': './src/navigation'
+          '@navigation': './src/navigation',
+          '@db': './src/db',
 
         },
       },

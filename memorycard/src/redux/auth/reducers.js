@@ -2,6 +2,7 @@ import {
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
+    USER_LOGOUT
 } from "@constants/constants";
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
     loading: false,
     error: null
 };
+
 export const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOGIN_REQUEST:
@@ -26,6 +28,13 @@ export const authReducer = (state = initialState, action) => {
                 ...state, 
                 loading: false, 
                 error: action.payload 
+            };
+        case USER_LOGOUT:
+            return {
+                ...state,
+                user: null,
+                token: null,
+                loading: false
             };
         default:
             return state;

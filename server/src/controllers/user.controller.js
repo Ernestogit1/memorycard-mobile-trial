@@ -34,3 +34,17 @@ exports.login = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+exports.getMe = async (req, res) => {
+    try {
+        res.json({
+            token: req.header('Authorization')?.replace('Bearer ', ''),
+            user: {
+                id: req.user._id,
+                username: req.user.username
+            }
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
